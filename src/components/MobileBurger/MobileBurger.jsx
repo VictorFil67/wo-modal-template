@@ -1,6 +1,6 @@
 import {
+  BurgerAuthButton,
   BurgerButtonExit,
-  BurgerButtonLogAut,
   BurgerButtonWraper,
   BurgerContainer,
   BurgerContainerContant,
@@ -9,9 +9,16 @@ import {
   HeaderLink,
 } from "./MobileBurger.Styled";
 import SvgClose from "../../images/SvgClose";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUser } from "../../store/auth/selectors";
+import { useNavigate } from "react-router-dom";
+import { logOutThunk } from "../../store/auth/operations";
 
-const MobileBurger = ({ isOpen, handleLogout, closeModal }) => {
-  const user = true;
+const MobileBurger = ({ isOpen, closeModal }) => {
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   return (
     <>
       <BurgerContainer className={isOpen ? "open" : ""}>
@@ -41,18 +48,18 @@ const MobileBurger = ({ isOpen, handleLogout, closeModal }) => {
           <BurgerButtonWraper>
             {!user ? (
               <>
-                <BurgerButtonLogAut onClick={handleLogout}>
+                <BurgerAuthButton onClick={() => navigate("/login")}>
                   Log in
-                </BurgerButtonLogAut>
-                <BurgerButtonLogAut onClick={handleLogout}>
+                </BurgerAuthButton>
+                <BurgerAuthButton onClick={() => navigate("/register")}>
                   Registration
-                </BurgerButtonLogAut>
+                </BurgerAuthButton>
               </>
             ) : (
               <>
-                <BurgerButtonLogAut onClick={handleLogout}>
+                <BurgerAuthButton onClick={() => dispatch(logOutThunk())}>
                   Log out
-                </BurgerButtonLogAut>
+                </BurgerAuthButton>
               </>
             )}
           </BurgerButtonWraper>

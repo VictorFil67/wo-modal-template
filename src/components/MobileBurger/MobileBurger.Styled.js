@@ -30,7 +30,7 @@ export const BurgerContainerContant = styled.div`
   padding: 0 40px;
 `;
 
-export const BurgerButtonLogAut = styled.button`
+export const BurgerAuthButton = styled.button`
   border: 1px solid rgba(249, 249, 249, 0.2);
   border-radius: 30px;
   padding: 10px 20px;

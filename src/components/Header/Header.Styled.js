@@ -29,18 +29,7 @@ export const LogoLink = styled(Link)`
     color: green;
   }
 `;
-// export const LogoStyled = styled(Logo)`
-//   height: 17px;
-//   @media only screen and (min-width: 1280px) {
-//     display: none;
-//   }
-// `;
-// export const LogoTitleSvgStyled = styled(LogoTitleSvg)`
-//   height: 17px;
-//   @media only screen and (max-width: 1279px) {
-//     display: none;
-//   }
-// `;
+
 export const HeaderUserContainer = styled.div`
   display: flex;
   align-items: center;
@@ -65,7 +54,7 @@ export const Name = styled.p`
   font-size: 16px;
   line-height: 1.125;
   letter-spacing: -0.02em;
-  color: var(--white);
+  color: var(--green);
 `;
 export const HeaderButtonBurger = styled.button`
   cursor: pointer;
